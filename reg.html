@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--<title>Registration Form in HTML CSS</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="css/regStyle.css">
+  </head>
+  <body>
+    <section class="container">
+      <header>Registration Form</header>
+      <form name="submit-to-google-sheet" id="hello">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter Full Name" name="Full Name" required>
+        </div>
+
+        <div class="input-box">
+          <label for="email">Email Address</label>
+          <input type="email" placeholder="Enter Email Address" name="Email Address" required>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter Phone Number" name="Phone Number" required >
+          </div>
+        </div>
+        <div class="gender-box">
+          <h3>Gender</h3>
+          <div class="gender-option" style="padding-left: 8%;">
+            <div class="gender">
+              <input type="radio" id="check-male" name="Gender" checked  value="Male">
+              <label for="check-male">Male</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="Gender" value="Female">
+              <label for="check-female">Female</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="Gender" value="Prefer not to say">
+              <label for="check-other">Prefer not to say</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" placeholder="Enter street address" name="Address 1" required style="display: inline-block;">
+          <!-- <input type="text" placeholder="Enter street address line 2" name="Address 2" required > -->
+          <div class="column">
+            <div class="select-box">
+              <select style="background-color: #666;color:#fff;"  name="Country">
+                <option hidden>Country</option>
+                <option>India</option>
+              </select>
+            </div>
+            <div class="column" >
+            <div class="select-box">
+              <select style="background-color: #666;color:#fff;" name="City">
+                <option hidden>City</option>
+                <option>Tiruppur</option>
+                <option>Namakkal</option>
+                <option>Dharmapuri</option>
+              </select>
+            </div>
+          </div>
+          </div>
+          <div class="column">
+            <input type="text" placeholder="Enter your region" name="Region" required >
+            <input type="number" placeholder="Enter Postal Code" name="Postal Code" required >
+          </div>
+
+<div class="column">
+    <div class="select-box">
+      <select style="background-color: #666;color:#fff;" name="Our Offers">
+        <option hidden>Our Offers</option>
+        <option>Tiruppur</option>
+        <option>Namakkal</option>
+        <option>Dharmapuri</option>
+        <option>No</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="select-box">
+      <select style="background-color: #666;color:#fff;"  name="Venue Selection">
+        <option hidden>Venue Selection</option>
+        <option>Venue-1</option>
+        <option>Venue-2</option>
+        <option>Venue-3</option>
+        <option>No</option>
+      </select>
+    </div>
+</div>
+</div>
+<div class="select-box">
+  <select style="background-color: #666;color:#fff;" name="Card">
+    <option hidden>Invitation Card</option>
+    <option>Card-1</option>
+    <option>Card-2</option>
+    <option>Card-3</option>
+    <option>Card-4</option>
+    <option>Card-5</option>
+    <option>Card-6</option>
+    <option>Card-7</option>
+    <option>Card-8</option>
+    <option>No</option>
+  </select>
+</div>
+
+
+<div class="column" >
+  <div class="select-box">
+    <select style="background-color: #666;color:#fff;" name="Entertainment" >
+      <option hidden>Entertainment</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+</div>
+
+<div class="column">
+  <div class="select-box">
+    <select style="background-color: #666;color:#fff;" name="Foods And Drinks">
+      <option hidden>Foods And Drinks</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+</div>
+
+<div class="column">
+  <div class="select-box">
+    <select style="background-color: #666;color:#fff;" name="Photos And Videos">
+      <option hidden>Photos And Videos</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+</div>
+
+<div class="column">
+  <div class="select-box">
+    <select style="background-color: #666;color:#fff;" name="Decorations">
+      <option hidden>Decorations</option>
+      <option>Decorations-1</option>
+      <option>Decorations-2</option>
+      <option>Decorations-3</option>
+      <option>Decorations-4</option>
+      <option>Decorations-5</option>
+      <option>Decorations-6</option>
+      <option>Decorations-7</option>
+      <option>Decorations-8</option>
+      <option>Decorations-9</option>
+      <option>No</option>
+    </select>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; margin:2%;">
+  <button id="button1" >Submit</button>
+</div>
+      </form>
+    </section>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbziE6Tefdn5tc7Cwf3pAnLrZWFkRgsg3ZxdbPsJ2npV6sxHEzSN86vnxWAXYOrFZ03c/exec'
+      const form = document.forms['submit-to-google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+          alert('SuccessFully Registered');
+          document.getElementById('hello').reset();
+      })
+    </script>
+
+  </body>
+</html>                                                                                                                                                                                                   
